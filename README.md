@@ -1,3 +1,14 @@
+# Steps to reproduce:
+
+- clone repository
+- make sure you have [angular-cli](https://github.com/angular/angular-cli) installed
+- run `npm install`
+- run `ng build --prod --aot`
+- you should see an error saying something like this: **... Module not found: Error: Can't resolve 'oidc-client/oidc-client' ...**
+- copy the `oidc-client.js` file from `node_modules/oidc-client/lib` one directory up to `node_modules/oidc-client` (`cp node_modules/oidc-client/lib/oidc-client.js node_modules/oidc-client/`)
+- run again `ng build --prod --aot`
+- *now it should work*
+
 # TestAot
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.25.5.
