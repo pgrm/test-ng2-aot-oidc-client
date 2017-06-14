@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { InjectionToken, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
@@ -12,12 +12,14 @@ const settings = { /* ... */ };
 
 const userManager = new UserManager(settings);
 
+export const userManagerToken: InjectionToken<UserManager> = new InjectionToken("UserManagerToken");
+
 export function getUserManager() {
   return userManager;
 }
 
 export const UserManagerProvider: FactoryProvider = {
-  provide: UserManager,
+  provide: userManagerToken,
   useFactory: getUserManager
 };
 
